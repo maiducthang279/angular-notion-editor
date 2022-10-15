@@ -1,1 +1,12 @@
 <h1>Angular Notion Editor</h1>
+<select [formControl]="tagControl">
+  <option value="h1" selected>H1</option>
+  <option value="h2">H2</option>
+  <option value="h3">H3</option>
+  <option value="p">P</option>
+</select>
+<app-content-editable
+  [tag]="tagControl.value || 'p'"
+  [html]="html"
+  (change)="handleChange($event)"
+></app-content-editable>
